@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def spectral_derivative(node_values, period, n_pts, der=0, zero_out=False):
+def spectral_derivative(node_values, period, n_pts, der=0):
     n = len(node_values)
     m = n // 2
     uh = np.fft.fftshift(np.fft.fft(node_values))
@@ -16,8 +16,6 @@ def spectral_derivative(node_values, period, n_pts, der=0, zero_out=False):
     uhp[start:end] = uh
 
     shifted_back = np.fft.ifftshift(uhp)
-    if zero_out:
-        shifted_back[0] = 0
     return (n_pts / n) * np.real(np.fft.ifft(shifted_back))
 
 
