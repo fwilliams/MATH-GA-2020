@@ -79,7 +79,6 @@ if movie_or_pdf == 'movie':
     plt.title("Allen-Cahn Equation with AB2 timestep")
     time_text = ax.text(0.01, 0.01, "Time = %0.4f s" % t, transform=ax.transAxes, color=[0, 1, 0])
 
-
     # This function is called on every frame to update the plot
     def update_fig(*args):
         global u, u_prev, u_nxt, it, t
